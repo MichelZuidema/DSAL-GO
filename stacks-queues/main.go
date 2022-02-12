@@ -23,6 +23,11 @@ func (q *Queue) Dequeue() int {
 	return remove
 }
 
+// Peek - This will return the value at the front of the queue
+func (q *Queue) Peek() int {
+	return q.items[0]
+}
+
 // Push - this will add a value at the end of the stack
 func (s *Stack) Push(i int) {
 	s.items = append(s.items, i)
@@ -37,8 +42,14 @@ func (s *Stack) Pop() int {
 	return remove
 }
 
+// Peek - this will return the last inserted value of the stack
+func (s *Stack) Peek() int {
+	return s.items[len(s.items) - 1]
+}
+
 func main() {
 	testQueue()
+	//testStack()
 }
 
 func testQueue() {
@@ -52,6 +63,8 @@ func testQueue() {
 
 	q.Dequeue()
 	fmt.Println(q)
+
+	fmt.Println(q.Peek())
 }
 
 // func testStack() {
@@ -65,4 +78,6 @@ func testQueue() {
 
 // 	s.Pop()
 // 	fmt.Println(s)
+
+// 	fmt.Println(s.Peek())
 // }
